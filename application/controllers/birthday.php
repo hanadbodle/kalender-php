@@ -22,6 +22,15 @@ class birthday extends CI_Controller {
 	{ 
 		$this->load->model("birthday_model");
 		$data['birthdays'] = $this->birthday_model->get_birthdays(); 
+		$this->load->view('template/header', $data);
 		$this->load->view('birthday/birthdays', $data);
+		$this->load->view('template/footer', $data);
+	
 	}
+
+	public function edit()
+	{ 
+		echo "je bent op de edit page";
+	}
+
 }
