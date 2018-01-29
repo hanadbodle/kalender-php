@@ -1,8 +1,15 @@
 
+@import url(//fonts.googleapis.com/css?family=Open+Sans);
+@import url(//fonts.googleapis.com/css?family=Open+Sans+Condensed:300);
 
-	body {
+/*
+    Center the contents of the page.
+*/
+
+body {
     margin: 0 auto;
     width: 50%;
+    
 }
 
 /*
@@ -103,9 +110,7 @@ form input[type=submit]:only-child {
     margin-left: 100px;     /* place submit button underneath fields */
 }
 
+.flexcontainer{
 
-
-
-
-
-
+  background color: red;
+}

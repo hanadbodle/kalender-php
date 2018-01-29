@@ -3,19 +3,20 @@
 <head>
 
 <title>Input Character</title>
-<link rel="stylesheet" href="<?php echo base_url('include/editnames.css')?>"?> 
+<link rel="stylesheet" href="<?php echo base_url('public/edits.css')?>"?> 
 </head>
 <body>
-<div id="flexcontainer">
-<h1 class=>Welkom </h1>
+<div id="plek">
 
-<center class="center">fill in your personal details</center>
+
 
 <center>
-<?php echo form_open('namen_datum/add_user'); ?>
+
+
+
 <table>
 <tr>
-<td>FirstName :</td>
+<td>Name :</td>
 <td><input type="text" name="person" required=""></td>
 </tr>
 <tr>

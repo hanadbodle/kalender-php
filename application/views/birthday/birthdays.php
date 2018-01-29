@@ -11,7 +11,8 @@ foreach($birthdays as $_key => $_value) {?>
  <h1><ul><?=$_value->day?></ul></h1>
  <a><?=$_value->person?></a>
  <td>
-<a href="" class="btn btn-primary">Edit</a>
+<td><a href="<?php echo site_url('Birthday/edit/?id=' . $_value->id); ?>" class="buttonkleur">Edit</a></td>
+<a href="" class="delete">Delete</a>
  </td>
 
  <?php }  ?>
