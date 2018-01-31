@@ -34,4 +34,10 @@ class birthday extends CI_Controller {
 		$this->load->view('edit');
 	}
 
+
+		public function create()
+	{ 
+		
+		$this->load->view('create');
+	}
 }
