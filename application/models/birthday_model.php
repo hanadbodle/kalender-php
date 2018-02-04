@@ -1,18 +1,65 @@
-<?php
+<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+//model is verbonden met de database calendar, birthdays op phpmyadmin.
+class birthday_model extends CI_Model {
+  // de codes hieronder horen bij de create!
+ 
 
-class birthday_model extends CI_Model{
-public function __construct(){
+ public function getData() {
+    
+    $query = $this->db->get('birthdays');
+    return $query->result();
+  }
 
-$this->load->database();
 
+public function get_birthdays(){
+	
+	$this->db->order_by('month','ASC');
+	$query = $this->db->get('birthdays');
+	return $query->result();
 }
-public function get_birthdays()
+  		public function add($data)
+		{
+			$this->load->database();
+			
+			$count = $this->db->insert('birthdays', $data);
+			if($count>0)
+			{
+				return true;
+			}
+			else
+			{
+				return false; 
+			}
+			//
+}
+public function updateuserbyid($data,$id)
 {
-       
-            
-            $this->db->order_by('month', 'ASC');
-            $query = $this->db->get('birthdays');
-            return $query->result();
-        }
+	$this->load->database();
+	$this->db->where('id', $id);
+	$this->db->update('birthdays',$data);
+	$this->db->order_by('month','ASC');
+	
+	return true;
+}
 
-    }
+function getuser(){
+	$this->load->database();
+	$data = $this->db->get('birthdays');
+	return $data->result();
+	$this->db->order_by('month','ASC');
+}
+function getuserbyid($id){
+	$this->load->database();
+	$this->db->where('id', $id);
+	$data = $this->db->get('birthdays');
+	return $data->result();
+	$this->db->order_by('month','ASC');
+}
+function deleteuser($id)
+{
+	$this->load->database();
+	$this->db->where('id',$id);
+	$this->db->delete('birthdays');
+	return true;
+}
+}

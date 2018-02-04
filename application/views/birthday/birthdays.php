@@ -1,25 +1,34 @@
+<html>
+<head>
+<title>Calendar</title>
+<link rel="stylesheet" href="<?php echo base_url('public/css/style.css')?>"/>
 
- 
+</head>
+<body>
+
 <ul>
 <div class="flexcontainer">
 <?php
-
+// deze gegevens worden geladen uit de database.
 $month = array("januari","februari","maart","april","mei","juni","juli","augustus","september","oktober","november","december");
+
 foreach($birthdays as $_key => $_value) {?>
+ 
+ <a><?=$_value->person?></a>
+
+ <td><a href="<?php echo site_url('Birthday/Edit/' . $_value->id);?>" id="namen">Edit</a><td>
+
+ <td><a href="<?php echo site_url('Birthday/delete/?id=' . $_value->id); ?>" class="buttonkleur">Delete</a></td>
+
+
 
  <h2><ul><?=$month[$_value->month -1]?></ul></h2>
  <h1><ul><?=$_value->day?></ul></h1>
 
- <a><?=$_value->person?></a>
 
- <td>
-<td><a href="<?php echo site_url('Birthday/edit/?id=' . $_value->id); ?>" class="buttonkleur">Edit</a></td>
-<a href="" class="delete">Delete</a>
- </td>
+
 
  
-
-
 
  <?php }  ?>
 </div>
@@ -27,4 +36,10 @@ foreach($birthdays as $_key => $_value) {?>
 </ul>
 
 
- <p><a href="<?php echo site_url('Birthday/create');?>" id="namen">toevoegen</a></p>
+
+                <p><a href="<?php echo site_url('Birthday/Create');?>" id="namen">+ Toevoegen</a></p>
+
+
+</body>
+</html>
+
